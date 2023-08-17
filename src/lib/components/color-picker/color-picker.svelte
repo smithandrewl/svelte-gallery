@@ -38,7 +38,7 @@
     height:       400px;
     width:        400px;
     border-style: solid;
-    border-width: 4px;
+    border-width: 10px;
 
   }
 </style>
