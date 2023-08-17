@@ -1,15 +1,10 @@
 
+<script>
+  import Slider from '$lib/components/color-picker/slider.svelte'
+</script>
+
 <div class="mt-5 sliders">
-  <div class="row">
-    <div class="col-sm-12">
-      <label for="red">Red</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <input class="form-range" type="range" name="red" id="red">
-    </div>
-  </div>
+  <Slider color="Red" value="0"/>
 </div>
 
 <div class="mt-5 color-box"></div>
