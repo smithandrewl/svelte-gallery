@@ -27,7 +27,7 @@
 </div>
 
 <h3 class="mt-5">{rgbToHex(red, green, blue)}</h3>
-<div class="color-box" style="background-color:rgb({red}, {green}, {blue})"></div>
+<div class="color-box" style="background-color:rgb({red}, {green}, {blue});border-color:rgb({red / 2}, {green / 2}, {blue / 2}"></div>
 
 <style>
   .sliders {
@@ -37,8 +37,8 @@
   .color-box {
     height:       400px;
     width:        400px;
-    border-style: dashed;
+    border-style: solid;
     border-width: 4px;
-    border-color: black;
+
   }
 </style>
