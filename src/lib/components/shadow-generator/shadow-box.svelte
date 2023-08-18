@@ -20,16 +20,15 @@
     spreadRadius
   );
 
-  $: css = "-webkit-box-shadow: " + styleValues + ";\n" +
-    "-moz-box-shadow: " + styleValues + ";\n" +
-    "box-shadow: " + styleValues + ";";
+  $: css =
+    "-webkit-box-shadow: " + styleValues + ";\n" +
+    "-moz-box-shadow:    " + styleValues + ";\n" +
+    "box-shadow:         " + styleValues + ";";
 </script>
 
 <div class="row">
   <div class="col-sm-6">
-    <div id="shadow-box" style={css} class="mb-5">
-
-    </div>
+    <div id="shadow-box" style={css} class="mb-5"/>
   </div>
   <div class="col-sm-6">
     <textarea class="form-control" rows="3" >{css}</textarea>

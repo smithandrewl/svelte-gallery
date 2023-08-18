@@ -12,7 +12,11 @@
       return hex.length === 1 ? '0' + hex : hex;
     };
 
-    if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+    const isValueInvalid = (value: number) => value < 0 || value > 255;
+
+    const isColorInvalid = [red, green, blue].some(isValueInvalid);
+
+    if (isColorInvalid) {
       throw new Error('Invalid color component value, must be between 0 and 255');
     }
 
@@ -27,7 +31,10 @@
 </div>
 
 <h3 class="mt-5">{rgbToHex(red, green, blue)}</h3>
-<div class="color-box" style="background-color:rgb({red}, {green}, {blue});"></div>
+<div
+  class = "color-box"
+  style = "background-color:rgb({red}, {green}, {blue});"
+></div>
 
 <style>
   .sliders {

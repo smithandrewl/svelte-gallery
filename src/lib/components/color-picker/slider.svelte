@@ -5,11 +5,18 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <label for="red">{color}({value})</label>
+    <label for={color}>{color}({value})</label>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <input class="form-range" type="range" name="red" id="red" bind:value={value} min="0" max="255">
+    <input
+      class      = "form-range"
+      type       = "range"
+      id         = {color}
+      bind:value = {value}
+      min        = "0"
+      max        = "255"
+    >
   </div>
 </div>
