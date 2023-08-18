@@ -8,11 +8,11 @@
 
   function lighter(value: number): number {
     let brighter = value * 1.5;
-    return Math.max(Math.min(brighter, 245), 20 * 1.5);
+    return Math.min(brighter, 255);
   }
 
   function darker(value: number): number {
-    return Math.max(value / 2, 20);
+    return value / 2;
   }
 
   function rgbToHex(red: number, green: number, blue: number): string {
