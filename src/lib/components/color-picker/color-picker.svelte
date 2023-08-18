@@ -20,7 +20,7 @@
   }
 </script>
 
-<div class="mt-5 sliders">
+<div class="sliders">
   <Slider color="Red"   bind:value={red}/>
   <Slider color="Green" bind:value={green}/>
   <Slider color="Blue"  bind:value={blue}/>

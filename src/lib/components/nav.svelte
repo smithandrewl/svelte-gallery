@@ -30,7 +30,7 @@
             <a class:active={$page.url.pathname === '/'} class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class:active={$page.url.pathname === '/color-picker'} class="nav-link" href="/color-picker">Color Picker</a>
+            <a class:active={$page.url.pathname.startsWith('/css')} class="nav-link" href="/css">CSS Tools</a>
           </li>
       </ul>
     </div>
