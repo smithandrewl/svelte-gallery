@@ -6,8 +6,9 @@
   import {makeKebab} from "$lib/util.js"
 </script>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-12 d-flex justify-content-between">
     <label for={makeKebab(name) + '-slider'}>{name}({value})</label>
+    <span><input type="number" id={"txt-" + makeKebab(name)} bind:value={value} style="width:65px"/>&nbsp;px</span>
   </div>
 </div>
 <div class="row">
