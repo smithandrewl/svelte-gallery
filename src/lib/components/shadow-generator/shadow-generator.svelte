@@ -1,5 +1,6 @@
 <script>
   import ShadowSlider from "$lib/components/shadow-generator/shadow-slider.svelte";
+  import ShadowBox from '$lib/components/shadow-generator/shadow-box.svelte';
 
   let horizontalLength = 0;
   let verticalLength   = 0;
@@ -16,6 +17,6 @@
     <ShadowSlider bind:value={spreadRadius}     name="Spread Radius"/>
   </div>
   <div class="col-sm-6">
-    Shadow Box
+    <ShadowBox/>
   </div>
 </div>
