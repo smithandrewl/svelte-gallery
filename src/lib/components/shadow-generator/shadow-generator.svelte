@@ -8,7 +8,14 @@
 </script>
 <h1>Shadow Generator</h1>
 
-<ShadowSlider bind:value={horizontalLength} name="Horizontal Length"/>
-<ShadowSlider bind:value={verticalLength}   name="Vertical Length"/>
-<ShadowSlider bind:value={blurRadius}       name="Blur Radius"/>
-<ShadowSlider bind:value={spreadRadius}     name="Spread Radius"/>
+<div class="row">
+  <div class="col-sm-6">
+    <ShadowSlider bind:value={horizontalLength} name="Horizontal Length"/>
+    <ShadowSlider bind:value={verticalLength}   name="Vertical Length"/>
+    <ShadowSlider bind:value={blurRadius}       name="Blur Radius"/>
+    <ShadowSlider bind:value={spreadRadius}     name="Spread Radius"/>
+  </div>
+  <div class="col-sm-6">
+    Shadow Box
+  </div>
+</div>
