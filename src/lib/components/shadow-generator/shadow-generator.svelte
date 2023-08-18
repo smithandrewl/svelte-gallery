@@ -13,7 +13,7 @@
   <div class="col-sm-12 mb-5">
     <ShadowSlider bind:value={horizontalLength} name="Horizontal Length" min="-200" max="200"/>
     <ShadowSlider bind:value={verticalLength}   name="Vertical Length"   min="-200" max="200"/>
-    <ShadowSlider bind:value={blurRadius}       name="Blur Radius"       min="0" max="300"/>
+    <ShadowSlider bind:value={blurRadius}       name="Blur Radius"       min="0"    max="300"/>
     <ShadowSlider bind:value={spreadRadius}     name="Spread Radius"     min="-200" max="200"/>
   </div>
   <div class="col-sm-12">
