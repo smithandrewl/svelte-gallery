@@ -17,6 +17,6 @@
       id         = {id}
       bind:value = {color}
     >
-    <div>{color}</div>
+    <div>{color.toUpperCase()}</div>
   </div>
 </div>
