@@ -4,7 +4,7 @@
   import GradientBox from '$lib/components/gradient-generator/gradient-box.svelte';
 
   let startColor = "#000000";
-  let endColor   = "#000000";
+  let endColor   = "#613583";
   let angle      = 0;
   let type       = "linear";
 
