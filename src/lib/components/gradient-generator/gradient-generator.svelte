@@ -18,7 +18,7 @@
         <input class="form-check-input me-1" type="radio" name="gradient-type" id="linear" value="linear">
         <label class="form-check-label me-5" for="linear">Linear</label>
         <input class="form-check-input me-1" type="radio" name="gradient-type" id="radial" value="radial">
-        <label class="from-check-lable" for="radial">Radial</label>
+        <label class="from-check-label" for="radial">Radial</label>
       </div>
     </div>
   </div>
