@@ -9,7 +9,6 @@
   let type       = "linear";
 
   $: angleDisabled = type === 'radial';
-
 </script>
 <div class="row">
   <div class="col-sm-4">
@@ -21,16 +20,38 @@
     <!-- Gradient controls -->
     <div class="row mb-5">
       <div class="d-flex align-content-center">
-        <input class="form-check-input me-1" type="radio" name="gradient-type" id="linear" value="linear" bind:group={type} >
+        <input
+          class      = "form-check-input me-1"
+          type       = "radio"
+          name       = "gradient-type"
+          id         = "linear"
+          value      = "linear"
+          bind:group = {type}
+        >
+
         <label class="form-check-label me-5" for="linear">Linear</label>
-        <input class="form-check-input me-1" type="radio" name="gradient-type" id="radial" bind:group={type} value="radial">
+
+        <input
+          class      = "form-check-input me-1"
+          type       = "radio"
+          name       = "gradient-type"
+          id         = "radial"
+          bind:group = {type}
+          value      = "radial"
+        >
+
         <label class="from-check-label" for="radial">Radial</label>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <label for="angle">Angle: {angle}</label>
-        <input class="form-range" type="range" id="angle" bind:value={angle} disabled={angleDisabled}>
+        <input
+          class      = "form-range"
+          type       = "range"
+          id         = "angle"
+          bind:value = {angle}
+          disabled   = {angleDisabled}>
       </div>
     </div>
   </div>
