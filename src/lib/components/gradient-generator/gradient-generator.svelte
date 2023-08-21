@@ -8,6 +8,8 @@
   let angle      = 0;
   let type       = "linear";
 
+  $: angleDisabled = type === 'radial';
+
 </script>
 <div class="row">
   <div class="col-sm-4">
@@ -28,7 +30,7 @@
     <div class="row">
       <div class="col-sm-12">
         <label for="angle">Angle: {angle}</label>
-        <input class="form-range" type="range" id="angle" bind:value={angle}>
+        <input class="form-range" type="range" id="angle" bind:value={angle} disabled={angleDisabled}>
       </div>
     </div>
   </div>
