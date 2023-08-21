@@ -13,6 +13,14 @@
   </div>
   <div class="col-sm-4">
     <!-- Gradient controls -->
+    <div class="row">
+      <div class="d-flex align-content-center">
+        <input class="form-check-input me-1" type="radio" name="gradient-type" id="linear" value="linear">
+        <label class="form-check-label me-5" for="linear">Linear</label>
+        <input class="form-check-input me-1" type="radio" name="gradient-type" id="radial" value="radial">
+        <label class="from-check-lable" for="radial">Radial</label>
+      </div>
+    </div>
   </div>
 
   <div class="col-sm-4">
