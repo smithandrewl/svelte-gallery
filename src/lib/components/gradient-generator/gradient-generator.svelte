@@ -67,9 +67,11 @@
     </div>
     <div class="row">
       <h2>Css</h2>
-      <pre id="generatedCss">
-      {$css}
-    </pre>
+      <div id="generatedCss">
+        {#each $css.split(";") as line, index}
+          {line};<br/>
+        {/each}
+      </div>
     </div>
   </div>
   <div class="col-sm-4">
