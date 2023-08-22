@@ -5,12 +5,14 @@
 
   import { setContext } from 'svelte';
   import {
+    createCSSStore,
     createGradientGeneratorStore,
   } from '$lib/stores/gradient-generator-store';
 
   const store = createGradientGeneratorStore();
+  const css = createCSSStore(store);
 
-  setContext('gradientGeneratorStore', store);
+  setContext('gradientGeneratoreCSSStore', css);
 
   $: angleDisabled = $store.type === 'radial';
 </script>
@@ -71,3 +73,22 @@
     />
   </div>
 </div>
+<div class="row mt-5">
+  <div class="col-sm-8">
+    <h2>Css</h2>
+    <pre id="generatedCss">
+      {$css}
+    </pre>
+  </div>
+</div>
+
+<style>
+  #generatedCss {
+    max-width:1000px;
+    min-height: 200px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 5px;
+  }
+</style>

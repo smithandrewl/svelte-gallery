@@ -1,4 +1,6 @@
-import { writable } from 'svelte/store';
+import {derived, writable} from 'svelte/store';
+
+import type { Writable } from 'svelte/store';
 
 export interface GradientGeneratorStore {
   startColor: string;
@@ -15,12 +17,26 @@ export const defaultGradient = () => ({
 });
 
 export function createGradientGeneratorStore() {
-  const { subscribe, set, update } = writable<GradientGeneratorStore>(defaultGradient());
+  return writable<GradientGeneratorStore>(defaultGradient());
+}
 
-  return {
-    subscribe,
-    set,
-    update
-  };
+export function createCSSStore(gradientStore: Writable<GradientGeneratorStore>) {
+  return derived(gradientStore, ($gradientStore) => {
+    const {startColor, endColor, angle, type } = $gradientStore;
+
+    if($gradientStore.type === 'linear') {
+      return `
+      background: ${startColor};
+      background: -webkit-linear-gradient(${angle}deg,${startColor} 0%, ${endColor} 100%);
+      background: linear-gradient(${angle}deg,${startColor} 0%, ${endColor} 100%);
+      `;
+    } else {
+      return `
+      background: ${startColor};
+      background: -webkit-radial-gradient(circle, ${startColor} 0%, ${endColor} 100%);
+      background: radial-gradient(circle, ${startColor} 0%, ${endColor} 100%);
+      `;
+    }
+  });
 }
 
