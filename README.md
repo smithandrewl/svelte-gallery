@@ -22,6 +22,12 @@ corresponding HTML color codes.
 The Shadow Generator tool enables users to visually design box shadows 
 and obtain the corresponding CSS code. 
 
+### Gradient Generator
+![Gradient Generator](images/GradientGenerator.png)
+
+The Gradient Generator tool enables users to visually design a gradient and 
+obtain the corresponding CSS code.
+
 ## Getting Started
 To run svelte-gallery locally, clone the repository and follow these steps:
 

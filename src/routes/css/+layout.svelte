@@ -20,6 +20,14 @@
   >
     Shadow Generator
   </a>
+
+  <a
+    class:active= {$page.url.pathname === "/css/gradient-generator"}
+    class       = "nav-link"
+    href        = "/css/gradient-generator"
+  >
+    Gradient Generator
+  </a>
 </nav>
 
 <slot/>
