@@ -22,7 +22,10 @@ export function createGradientGeneratorStore() {
 
 export function createCSSStore(gradientStore: Writable<GradientGeneratorStore>) {
   return derived(gradientStore, ($gradientStore) => {
-    const {startColor, endColor, angle, type } = $gradientStore;
+    const { angle } = $gradientStore;
+
+    const startColor = $gradientStore.startColor.toUpperCase();
+    const endColor   = $gradientStore.endColor.toUpperCase();
 
     if($gradientStore.type === 'linear') {
       return `
