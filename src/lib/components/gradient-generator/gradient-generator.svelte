@@ -3,18 +3,20 @@
   import ColorPicker from '$lib/components/misc/color-picker.svelte';
   import GradientBox from '$lib/components/gradient-generator/gradient-box.svelte';
 
-  let startColor = "#000000";
-  let endColor   = "#613583";
-  let angle      = 0;
-  let type       = "linear";
+  import { setContext } from 'svelte';
+  import { createGradientGeneratorStore } from '$lib/stores/gradient-generator-store';
 
-  $: angleDisabled = type === 'radial';
+  const store = createGradientGeneratorStore();
+
+  setContext('gradientGeneratorStore', store);
+
+  $: angleDisabled = $store.type === 'radial';
 </script>
 <div class="row">
   <div class="col-sm-4">
     <!-- Colors and presets -->
-        <ColorPicker label="Start Color" bind:color={startColor}/>
-        <ColorPicker label="End Color"   bind:color={endColor}/>
+        <ColorPicker label="Start Color" bind:color={$store.startColor} />
+        <ColorPicker label="End Color"   bind:color={$store.endColor}/>
   </div>
   <div class="col-sm-4">
     <!-- Gradient controls -->
@@ -26,7 +28,7 @@
           name       = "gradient-type"
           id         = "linear"
           value      = "linear"
-          bind:group = {type}
+          bind:group = {$store.type}
         >
 
         <label class="form-check-label me-5" for="linear">Linear</label>
@@ -36,7 +38,7 @@
           type       = "radio"
           name       = "gradient-type"
           id         = "radial"
-          bind:group = {type}
+          bind:group = {$store.type}
           value      = "radial"
         >
 
@@ -45,13 +47,14 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <label for="angle">Angle: {angle}</label>
+        <label for="angle">Angle: {$store.angle}</label>
         <input
           class      = "form-range"
           type       = "range"
           id         = "angle"
-          bind:value = {angle}
-          disabled   = {angleDisabled}>
+          bind:value = {$store.angle}
+          disabled   = {angleDisabled}
+        >
       </div>
     </div>
   </div>
@@ -59,10 +62,10 @@
   <div class="col-sm-4">
     <!-- Gradient Box -->
     <GradientBox
-      bind:angle      = {angle}
-      bind:startColor = {startColor}
-      bind:endColor   = {endColor}
-      bind:type       = {type}
+      bind:angle      = {$store.angle}
+      bind:startColor = {$store.startColor}
+      bind:endColor   = {$store.endColor}
+      bind:type       = {$store.type}
     />
   </div>
 </div>
