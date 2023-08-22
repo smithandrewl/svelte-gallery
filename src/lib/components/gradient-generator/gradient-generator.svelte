@@ -4,7 +4,9 @@
   import GradientBox from '$lib/components/gradient-generator/gradient-box.svelte';
 
   import { setContext } from 'svelte';
-  import { createGradientGeneratorStore } from '$lib/stores/gradient-generator-store';
+  import {
+    createGradientGeneratorStore,
+  } from '$lib/stores/gradient-generator-store';
 
   const store = createGradientGeneratorStore();
 

@@ -7,14 +7,14 @@ export interface GradientGeneratorStore {
   type:       string;
 }
 
-const defaultGradient: GradientGeneratorStore = {
+export const defaultGradient = () => ({
   startColor: '#FFFFFF',
   endColor:   '#000000',
   angle:      0,
   type:       'linear'
-};
+});
 
 export function createGradientGeneratorStore() {
-  return writable<GradientGeneratorStore>(defaultGradient);
+  return writable<GradientGeneratorStore>(defaultGradient());
 }
 
