@@ -15,6 +15,12 @@ export const defaultGradient = () => ({
 });
 
 export function createGradientGeneratorStore() {
-  return writable<GradientGeneratorStore>(defaultGradient());
+  const { subscribe, set, update } = writable<GradientGeneratorStore>(defaultGradient());
+
+  return {
+    subscribe,
+    set,
+    update
+  };
 }
 
