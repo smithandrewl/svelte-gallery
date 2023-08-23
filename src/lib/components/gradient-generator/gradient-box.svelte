@@ -20,7 +20,6 @@
 
 <style>
   .gradient-box {
-    width:100%;
     padding-top:100%;
     margin-left:10%;
     border-style: solid;
