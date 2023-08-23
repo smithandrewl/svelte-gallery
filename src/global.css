@@ -1,0 +1,10 @@
+.container {
+  height: 100vh;
+  padding-left:     2em;
+  padding-right:    2em;
+  backdrop-filter:  blur(10px);
+  background-color: rgba(225,225,225,.95);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+

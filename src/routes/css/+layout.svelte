@@ -30,7 +30,7 @@
   </a>
 </nav>
 
-<slot/>
+    <slot/>
 
 <style>
   .nav-link {
@@ -39,4 +39,9 @@
   .nav-link.active {
     color: black;
   }
+
+
 </style>
+
+
+

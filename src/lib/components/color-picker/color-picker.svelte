@@ -2,9 +2,10 @@
 <script lang="ts">
   import Slider from '$lib/components/color-picker/slider.svelte'
 
-  let red   = 127;
-  let green = 127;
-  let blue  = 127;
+  // Default to a deep purple.
+  let red   = 86;
+  let green = 0;
+  let blue  = 98;
 
   function rgbToHex(red: number, green: number, blue: number): string {
     const toHex = (value: number): string => {
