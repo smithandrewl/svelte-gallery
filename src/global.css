@@ -1,0 +1,10 @@
+body {
+  background-color: #2d2d2d;
+}
+
+.container {
+  height:           100vh;
+  padding-left:     2em;
+  padding-right:    2em;
+  background-color: #fcfcfc;
+}
