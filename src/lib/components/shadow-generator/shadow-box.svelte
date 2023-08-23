@@ -42,5 +42,6 @@
     border-color: black;
     height:       400px;
     width:        400px;
+    background-color: rgb(86, 0, 98);
   }
 </style>
