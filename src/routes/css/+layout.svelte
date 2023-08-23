@@ -30,7 +30,11 @@
   </a>
 </nav>
 
-<slot/>
+<div class="card">
+  <div class="card-body">
+    <slot/>
+  </div>
+</div>
 
 <style>
   .nav-link {
