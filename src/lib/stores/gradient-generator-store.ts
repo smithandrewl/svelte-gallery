@@ -30,8 +30,8 @@ export function createCSSStore(gradientStore: Writable<GradientGeneratorStore>) 
     if($gradientStore.type === 'linear') {
       return `
       background: ${startColor};
-      background: -webkit-linear-gradient(${angle}deg,${startColor} 0%, ${endColor} 100%);
-      background: linear-gradient(${angle}deg,${startColor} 0%, ${endColor} 100%)`;
+      background: -webkit-linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%);
+      background: linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%)`;
     } else {
       return `
       background: ${startColor};

@@ -7,7 +7,6 @@
   let blurRadius       = 5;
   let spreadRadius     = 0;
 </script>
-<h1>Shadow Generator</h1>
 
 <div class="row">
   <div class="col-sm-12 mb-5">

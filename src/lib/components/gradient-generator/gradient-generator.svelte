@@ -91,7 +91,8 @@
     min-height: 200px;
     border-style: solid;
     border-width: 1px;
-    border-color: gray;
+    border-color: rgba(0,0,0, .25);
     border-radius: 5px;
+    background-color: white;
   }
 </style>
