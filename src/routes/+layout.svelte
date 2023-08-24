@@ -8,7 +8,7 @@
 
 <Nav/>
 
-<main class="container bg-light">
+<main class="container bg-body-secondary">
   <div class="mt-3">
   <slot/>
   </div>
