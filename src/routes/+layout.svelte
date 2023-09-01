@@ -8,7 +8,7 @@
 
 <Nav/>
 
-<main class="container bg-body-secondary">
+<main class="container bg-light">
   <div class="mt-3">
   <slot/>
   </div>
@@ -17,7 +17,7 @@
 <svelte:head>
   <style>
     body {
-      background-color: #560062 !important;
+      background-color: rgb(50, 50, 50) !important;
     }
   </style>
 </svelte:head>

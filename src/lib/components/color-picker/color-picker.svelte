@@ -25,17 +25,31 @@
   }
 </script>
 
-<div class="sliders">
-  <Slider color="Red"   bind:value={red}/>
-  <Slider color="Green" bind:value={green}/>
-  <Slider color="Blue"  bind:value={blue}/>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <Slider color="Red"   bind:value={red}/>
+        <Slider color="Green" bind:value={green}/>
+        <Slider color="Blue"  bind:value={blue}/>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h3 class="mt-5">{rgbToHex(red, green, blue)}</h3>
-<div
-  class = "color-box"
-  style = "background-color:rgb({red}, {green}, {blue});"
-></div>
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+  <div class="card-body">
+    <h3 class="mt-5">{rgbToHex(red, green, blue)}</h3>
+    <div
+      class = "color-box"
+      style = "background-color:rgb({red}, {green}, {blue});"
+    ></div>
+  </div>
+</div>
+</div>
+</div>
 
 <style>
   .sliders {
