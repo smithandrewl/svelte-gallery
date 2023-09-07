@@ -4,6 +4,8 @@
   export let blurRadius:       number;
   export let spreadRadius:     number;
 
+  import CssBox from '$lib/components/css-box/css-box.svelte';
+
   function buildStyleValues(
     horizontalLength: number,
     verticalLength:   number,
@@ -31,7 +33,7 @@
     <div id="shadow-box" style={css} class="mb-5"/>
   </div>
   <div class="col-sm-6">
-    <textarea class="form-control" rows="3" >{css}</textarea>
+    <CssBox css={css}/>
   </div>
 </div>
 
