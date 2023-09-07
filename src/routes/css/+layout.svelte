@@ -4,7 +4,7 @@
 
 <h1>CSS Tools</h1>
 
-<nav class="nav mb-5">
+<nav class="nav mb-4">
   <a
     class:active = {$page.url.pathname === "/css"}
     class        = "nav-link active"
