@@ -29,14 +29,13 @@ export function createCSSStore(gradientStore: Writable<GradientGeneratorStore>) 
 
     if($gradientStore.type === 'linear') {
       return `
-      background: ${startColor};
-      background: -webkit-linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%);
-      background: linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%)`;
+background: ${startColor};
+background: -webkit-linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%);
+background: linear-gradient(${angle}deg, ${startColor} 0%, ${endColor} 100%)`;
     } else {
-      return `
-      background: ${startColor};
-      background: -webkit-radial-gradient(circle, ${startColor} 0%, ${endColor} 100%);
-      background: radial-gradient(circle, ${startColor} 0%, ${endColor} 100%)`;
+      return `background: ${startColor};\n` +
+        `background: -webkit-radial-gradient(circle, ${startColor} 0%, ${endColor} 100%);\n` +
+        `background: radial-gradient(circle, ${startColor} 0%, ${endColor} 100%);\n`;
     }
   });
 }

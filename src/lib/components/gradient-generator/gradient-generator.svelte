@@ -15,6 +15,31 @@
   setContext('gradientGeneratoreCSSStore', css);
 
   $: angleDisabled = $store.type === 'radial';
+
+  import { onMount, afterUpdate } from 'svelte';
+
+  // onMount(() => {
+  //   hljs.highlightAll();
+  // });
+  //
+  // afterUpdate(() => {
+  //   hljs.highlightAll();
+  // });
+
+  function highlightCode(node, content) {
+    hljs.highlightElement(node);
+
+    return {
+      update(newContent) {
+        if (newContent !== content) {
+          content = newContent;
+          node.textContent = content;
+          hljs.highlightElement(node);
+        }
+      }
+    };
+  }
+
 </script>
 <div class="row">
   <div class="col-sm-8">
@@ -74,11 +99,13 @@
 
     <div class="row mt-3">
       <h2>Css</h2>
-      <div id="generatedCss">
+      <pre>
+      <code use:highlightCode={$css} id="generatedCss">
         {#each $css.split(";") as line, index}
           {line};<br/>
         {/each}
-      </div>
+      </code>
+      </pre>
     </div>
   </div>
   <div class="col-sm-4">
