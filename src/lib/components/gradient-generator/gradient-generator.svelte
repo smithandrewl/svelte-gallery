@@ -2,7 +2,7 @@
 
   import ColorPicker from '$lib/components/misc/color-picker.svelte';
   import GradientBox from '$lib/components/gradient-generator/gradient-box.svelte';
-
+  import CssBox from '$lib/components/css-box/css-box.svelte';
   import { setContext } from 'svelte';
   import {
     createCSSStore,
@@ -15,30 +15,6 @@
   setContext('gradientGeneratoreCSSStore', css);
 
   $: angleDisabled = $store.type === 'radial';
-
-  import { onMount, afterUpdate } from 'svelte';
-
-  // onMount(() => {
-  //   hljs.highlightAll();
-  // });
-  //
-  // afterUpdate(() => {
-  //   hljs.highlightAll();
-  // });
-
-  function highlightCode(node, content) {
-    hljs.highlightElement(node);
-
-    return {
-      update(newContent) {
-        if (newContent !== content) {
-          content = newContent;
-          node.textContent = content;
-          hljs.highlightElement(node);
-        }
-      }
-    };
-  }
 
 </script>
 <div class="row">
@@ -98,14 +74,7 @@
     </div>
 
     <div class="row mt-3">
-      <h2>Css</h2>
-      <pre>
-      <code use:highlightCode={$css} id="generatedCss">
-        {#each $css.split(";") as line, index}
-          {line};<br/>
-        {/each}
-      </code>
-      </pre>
+      <CssBox bind:css={$css}/>
     </div>
   </div>
   <div class="col-sm-4">
@@ -116,17 +85,10 @@
       bind:endColor   = {$store.endColor}
       bind:type       = {$store.type}
     />
+
+
   </div>
 </div>
 
 <style>
-  #generatedCss {
-    max-width:1000px;
-    min-height: 200px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0,0,0, .25);
-    border-radius: 5px;
-    background-color: white;
-  }
 </style>
