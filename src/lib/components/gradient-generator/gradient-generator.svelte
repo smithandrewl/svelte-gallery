@@ -74,7 +74,7 @@
     </div>
 
     <div class="row mt-3">
-      <CssBox bind:css={$css}/>
+      <CssBox css={$css}/>
     </div>
   </div>
   <div class="col-sm-4">
