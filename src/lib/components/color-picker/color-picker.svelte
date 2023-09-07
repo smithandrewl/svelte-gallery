@@ -38,17 +38,17 @@
 </div>
 
 <div class="row">
-<div class="col-sm-6">
-<div class="card">
-  <div class="card-body">
-    <h3 class="mt-5">{rgbToHex(red, green, blue)}</h3>
-    <div
-      class = "color-box"
-      style = "background-color:rgb({red}, {green}, {blue});"
-    ></div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h2>{rgbToHex(red, green, blue)}</h2>
+        <div
+          class = "color-box"
+          style = "background-color:rgb({red}, {green}, {blue});"
+        ></div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
 <style>
