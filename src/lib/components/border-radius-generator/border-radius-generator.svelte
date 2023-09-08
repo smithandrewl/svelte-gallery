@@ -1,7 +1,9 @@
 <script>
 import CssBox from "$lib/components/css-box/css-box.svelte";
 
-import BorderRadiusBox from "$lib/components/border-radius-generator/border-radius-box.svelte"
+import BorderRadiusBox from "$lib/components/border-radius-generator/border-radius-box.svelte";
+
+import BorderRadiusSlider from "$lib/components/border-radius-generator/slider.svelte";
 
 import {
   createBorderRadiusCSSStore,
@@ -20,9 +22,20 @@ const css = createBorderRadiusCSSStore(store);
         <div class="card-body">
           <div class="row">
             <div class="col-sm-6">
+              <div class="row">
+                <BorderRadiusSlider bind:value={$store.topLeftRadius} caption="Top Left Radius"/>
+              </div>
+              <div class="row">
+                <BorderRadiusSlider bind:value={$store.bottomLeftRadius} caption="Bottom Left Radius"/>
+              </div>
             </div>
             <div class="col-sm-6">
-
+              <div class="row">
+                <BorderRadiusSlider bind:value={$store.topRightRadius} caption="Top Right Radius"/>
+              </div>
+              <div class="row">
+                <BorderRadiusSlider bind:value={$store.bottomRightRadius} caption="Bottom Right Radius"/>
+              </div>
             </div>
           </div>
         </div>
