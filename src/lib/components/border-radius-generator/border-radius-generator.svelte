@@ -1,8 +1,7 @@
 <script>
 import CssBox from "$lib/components/css-box/css-box.svelte";
-import ColorPicker from "$lib/components/misc/color-picker.svelte";
-import GradientBox
-  from "$lib/components/gradient-generator/gradient-box.svelte";
+
+import BorderRadiusBox from "$lib/components/border-radius-generator/border-radius-box.svelte"
 </script>
 
 <div class="row">
@@ -26,6 +25,6 @@ import GradientBox
     </div>
   </div>
   <div class="col-sm-4">
-
+    <BorderRadiusBox/>
   </div>
 </div>
