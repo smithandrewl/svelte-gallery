@@ -46,7 +46,7 @@
 
 <div  class="position-relative p-0 m-0">
   <!-- Gray Overlay -->
-  <div id="copy-header" class="position-absolute bg-dark text-white d-flex justify-content-between" style="width: 100%; height: 1.5em; z-index: 1;">
+  <div id="copy-header" class="position-absolute bg-dark text-white d-flex justify-content-between">
     <small class="ms-2">CSS</small>
     <small id="copy-icon" href="#" class="pe-2" on:click = {copyToClipboard}>
 
@@ -59,7 +59,7 @@
       {/if}
     </small>
   </div>
-    <pre class="p-0" style="z-index: 0; width: 100%;"><code class="mt-3" use:highlightCode={css} id="generatedCss">{css}</code></pre>
+    <pre class="p-0"><code class="mt-3" use:highlightCode={css} id="generatedCss">{css}</code></pre>
 </div>
 
 <style>
@@ -71,10 +71,15 @@
   }
 
   pre {
-    margin: 0;
+    margin:  0;
+    z-index: 0;
+    width:   100%;
   }
 
   #copy-header{
     border-radius: 5px;
+    width:         100%;
+    height:        1.5em;
+    z-index:       1;
   }
 </style>
