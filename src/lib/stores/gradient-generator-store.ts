@@ -11,7 +11,7 @@ export interface GradientGeneratorStore {
 
 export const defaultGradient = () => ({
   startColor: '#000000',
-  endColor:   '#560062',
+  endColor:   '#000080',
   angle:      0,
   type:       'linear'
 });
