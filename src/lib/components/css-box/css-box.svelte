@@ -17,9 +17,5 @@
 </script>
 <h2>Css</h2>
 <pre>
-  <code use:highlightCode={css} id="generatedCss">
-    {#each css.split(";") as line, index}
-      {line};<br/>
-    {/each}
-  </code>
+  <code use:highlightCode={css} id="generatedCss">{css}</code>
 </pre>
