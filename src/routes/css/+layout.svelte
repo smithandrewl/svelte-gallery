@@ -28,6 +28,14 @@
   >
     Gradient Generator
   </a>
+
+  <a
+    class:active = {$page.url.pathname === "/css/border-radius-generator"}
+    class        = "nav-link"
+    href         = "/css/border-radius-generator"
+  >
+    Border Radius Generator
+  </a>
 </nav>
 
     <slot/>
