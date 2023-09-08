@@ -21,21 +21,31 @@
     });
   }
 </script>
-<h2>Css</h2>
 
-<pre class="p-0"><code use:highlightCode={css} id="generatedCss">{css}</code></pre>
-
-<div class="p-0 d-flex justify-content-center">
-  <button
-    class    = "btn btn-success"
-    on:click = {copyToClipboard}
-  >
-    <i class="bi bi-clipboard-fill"></i>&nbsp; Copy
-  </button>
+<div  class="position-relative p-0 m-0">
+  <!-- Gray Overlay -->
+  <div id="copy-header" class="position-absolute bg-dark text-white d-flex justify-content-between" style="width: 100%; height: 1.5em; z-index: 1;">
+    <small class="ms-2">CSS</small>
+    <small id="copy-icon" href="#" class="pe-2" on:click = {copyToClipboard}>
+      <i class="bi bi-clipboard-fill"></i> Copy Code
+    </small>
+  </div>
+    <pre class="p-0" style="z-index: 0; width: 100%;"><code class="mt-3" use:highlightCode={css} id="generatedCss">{css}</code></pre>
 </div>
 
 <style>
+  #copy-icon {
+    cursor: pointer;
+  }
   code {
+    border-radius: 5px;
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  #copy-header{
     border-radius: 5px;
   }
 </style>
