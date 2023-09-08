@@ -21,11 +21,11 @@
     });
   }
 </script>
-<h2>Css</h2>
 
 <div  class="position-relative p-0 m-0">
   <!-- Gray Overlay -->
-  <div id="copy-header" class="position-absolute bg-dark text-white d-flex justify-content-end" style="width: 100%; height: 1.5em; z-index: 1;">
+  <div id="copy-header" class="position-absolute bg-dark text-white d-flex justify-content-between" style="width: 100%; height: 1.5em; z-index: 1;">
+    <small class="ms-2">CSS</small>
     <small id="copy-icon" href="#" class="pe-2" on:click = {copyToClipboard}>
       <i class="bi bi-clipboard-fill"></i> Copy Code
     </small>
