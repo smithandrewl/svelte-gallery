@@ -19,3 +19,9 @@
 <pre>
   <code use:highlightCode={css} id="generatedCss">{css}</code>
 </pre>
+
+<style>
+  code {
+    border-radius: 5px;
+  }
+</style>
