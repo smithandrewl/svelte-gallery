@@ -4,6 +4,8 @@
   import Nav from '$lib/components/nav.svelte';
 
   import '../global.css';
+  import "bootstrap-icons/font/bootstrap-icons.css";
+
 </script>
 
 <Nav/>
