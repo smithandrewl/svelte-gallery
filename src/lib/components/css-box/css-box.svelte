@@ -1,11 +1,13 @@
-<script>
+<script lang="ts">
+  type CopyState = 'DEFAULT' | 'SUCCESS' | 'FAILURE';
+
+  let copyState = 'DEFAULT';
+
   export let css;
 
-  let showingMessage = false;
-  let copySucceeded = false;
-
-  $: showCopiedMessage = showingMessage && copySucceeded;
-  $: showErrorMessage = showingMessage && !copySucceeded;
+  $: showCopiedMessage  = copyState === 'SUCCESS';
+  $: showErrorMessage   = copyState === 'FAILURE';
+  $: showDefaultMessage = copyState === 'DEFAULT';
 
   function highlightCode(node, content) {
     hljs.highlightElement(node);
@@ -21,27 +23,23 @@
     };
   }
 
-  function resetFlags() {
-    showingMessage = false;
-    copySucceeded = false;
+  function resetStateAfterDelay() {
+    setTimeout(() => {
+      copyState = 'DEFAULT';
+    }, 2000);
   }
   function copyToClipboard() {
     navigator.clipboard.writeText(css)
       .then(() => {
-        copySucceeded = true;
-        showingMessage = true;
+        copyState = 'SUCCESS';
 
-        setTimeout(() => {
-          resetFlags();
-        }, 2000);
+        resetStateAfterDelay();
+
       }).catch(err => {
       alert('Unable to copy text');
-        copySucceeded = false;
-        showingMessage = true;
+      copyState = 'FAILURE';
 
-        setTimeout(() => {
-          resetFlags();
-        }, 2000)
+      resetStateAfterDelay();
     });
   }
 </script>
@@ -52,15 +50,11 @@
     <small class="ms-2">CSS</small>
     <small id="copy-icon" href="#" class="pe-2" on:click = {copyToClipboard}>
 
-      {#if showingMessage === false}
+      {#if showDefaultMessage}
       <i class="bi bi-clipboard-fill" ></i> Copy Code
-      {/if}
-
-      {#if showCopiedMessage}
+      {:else if showCopiedMessage}
         <i class="bi bi-check text-success"></i>Copied!
-      {/if}
-
-      {#if showErrorMessage}
+      {:else if showErrorMessage}
         <i class="bi bi-x text-danger"></i>Failed to copy to clipboard.
       {/if}
     </small>
