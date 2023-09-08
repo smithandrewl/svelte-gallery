@@ -1,11 +1,5 @@
 <script lang="ts">
-  import {
-    createBorderRadiusCSSStore,
-    createBorderRadiusGeneratorStore,
-  } from '$lib/stores/border-radius-generator-store';
-
-  const store = createBorderRadiusGeneratorStore();
-  const css = createBorderRadiusCSSStore(store);
+export let css;
 </script>
 
 <style>
@@ -14,9 +8,9 @@
     margin-left:   10%;
     border-style:  solid;
     border-width:  5px;
+    background-color: #000080;
   }
 </style>
 
-<div class="border-radius-box" style={$css}>
-
+<div class="border-radius-box" style={css}>
 </div>

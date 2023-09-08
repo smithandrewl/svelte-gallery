@@ -47,6 +47,6 @@ const css = createBorderRadiusCSSStore(store);
     </div>
   </div>
   <div class="col-sm-4">
-    <BorderRadiusBox/>
+    <BorderRadiusBox css={$css}/>
   </div>
 </div>

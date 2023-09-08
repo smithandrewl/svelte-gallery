@@ -11,8 +11,8 @@ export interface BorderRadiusGeneratorStore {
 
 export const defaultBorderRadius = () => ({
   topLeftRadius:     10,
-  topRightRadius:    0,
-  bottomRightRadius: 10,
+  topRightRadius:    126,
+  bottomRightRadius: 43,
   bottomLeftRadius:  0,
 });
 
