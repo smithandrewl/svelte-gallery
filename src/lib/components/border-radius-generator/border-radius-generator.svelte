@@ -33,23 +33,43 @@ function resetAllRadii() {
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <BorderRadiusSlider on:valueChanged={allBorderChanged} bind:value={$store.allRadii} caption="All Radii"/>
+            <BorderRadiusSlider
+              on:valueChanged = {allBorderChanged}
+              bind:value      = {$store.allRadii}
+              caption         = "All Radii"
+            />
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.topLeftRadius} on:valueChanged={resetAllRadii} caption="Top Left Radius"/>
+                <BorderRadiusSlider
+                  bind:value      = {$store.topLeftRadius}
+                  on:valueChanged = {resetAllRadii}
+                  caption         = "Top Left Radius"
+                />
               </div>
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.bottomLeftRadius} on:valueChanged={resetAllRadii} caption="Bottom Left Radius"/>
+                <BorderRadiusSlider
+                  bind:value      = {$store.bottomLeftRadius}
+                  on:valueChanged = {resetAllRadii}
+                  caption         = "Bottom Left Radius"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.topRightRadius} on:valueChanged={resetAllRadii} caption="Top Right Radius"/>
+                <BorderRadiusSlider
+                  bind:value      = {$store.topRightRadius}
+                  on:valueChanged = {resetAllRadii}
+                  caption         = "Top Right Radius"
+                />
               </div>
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.bottomRightRadius} on:valueChanged={resetAllRadii} caption="Bottom Right Radius"/>
+                <BorderRadiusSlider
+                  bind:value      = {$store.bottomRightRadius}
+                  on:valueChanged = {resetAllRadii}
+                  caption         = "Bottom Right Radius"
+                />
               </div>
             </div>
           </div>
