@@ -1,19 +1,17 @@
 .container {
-  height: 100vh;
-  padding-left:     2em;
-  padding-right:    2em;
-  border: 1px solid rgba(255,255,255,0.25);
+  height:        100vh;
+  padding-left:  2em;
+  padding-right: 2em;
+  border:        1px solid rgba(255,255,255,0.25);
 
   -webkit-box-shadow: 4px 1px 7px -4px;
   -moz-box-shadow:    4px 1px 7px -4px;
   box-shadow:         4px 1px 7px -4px;
-
 }
 
 .navbar.sticky-top {
   -webkit-box-shadow: 4px 1px 7px -4px;
   -moz-box-shadow:    4px 1px 7px -4px;
   box-shadow:         0px 1px 7px -4px;
-
 }
 

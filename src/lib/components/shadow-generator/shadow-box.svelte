@@ -39,12 +39,12 @@
 
 <style>
   #shadow-box {
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 5px;
-    height:       400px;
-    width:        400px;
+    border-style:     solid;
+    border-width:     1px;
+    border-color:     black;
+    border-radius:    5px;
+    height:           400px;
+    width:            400px;
     background-color: #000080;
   }
 </style>

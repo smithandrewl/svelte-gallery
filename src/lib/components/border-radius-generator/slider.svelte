@@ -29,7 +29,7 @@
       bind:value = {value}
       min        = "0"
       max        = "200"
-      on:input = {handleChange}
+      on:input  = {handleChange}
       on:change = {handleChange}
     >
   </div>

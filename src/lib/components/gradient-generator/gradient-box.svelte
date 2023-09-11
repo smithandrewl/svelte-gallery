@@ -13,10 +13,10 @@
 
 <style>
   .gradient-box {
-    padding-top:100%;
-    margin-left:10%;
-    border-style: solid;
-    border-width: 5px;
+    padding-top:   100%;
+    margin-left:   10%;
+    border-style:  solid;
+    border-width:  5px;
     border-radius: 5px;
   }
 </style>
