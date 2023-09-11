@@ -3,6 +3,16 @@
   export let caption: string;
 
   import {makeKebab} from "$lib/util.js"
+
+  import { createEventDispatcher } from 'svelte'
+
+  const dispatch = createEventDispatcher();
+
+  function handleChange(e) {
+    dispatch('valueChanged', {
+      value: e.target.value
+    });
+  }
 </script>
 
 <div class="row">
@@ -19,6 +29,8 @@
       bind:value = {value}
       min        = "0"
       max        = "200"
+      on:input = {handleChange}
+      on:change = {handleChange}
     >
   </div>
 </div>

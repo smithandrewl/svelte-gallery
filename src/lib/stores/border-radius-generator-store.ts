@@ -3,6 +3,7 @@ import {derived, writable} from 'svelte/store';
 import type { Writable } from 'svelte/store';
 
 export interface BorderRadiusGeneratorStore {
+  allRadii:          number;
   topLeftRadius:     number;
   topRightRadius:    number;
   bottomRightRadius: number;
@@ -10,6 +11,7 @@ export interface BorderRadiusGeneratorStore {
 }
 
 export const defaultBorderRadius = () => ({
+  allRadii:          0,
   topLeftRadius:     10,
   topRightRadius:    126,
   bottomRightRadius: 43,

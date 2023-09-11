@@ -11,8 +11,20 @@ import {
 } from '$lib/stores/border-radius-generator-store';
 
 const store = createBorderRadiusGeneratorStore();
-const css = createBorderRadiusCSSStore(store);
+const css   = createBorderRadiusCSSStore(store);
 
+function allBorderChanged(e) {
+  const val = e.detail.value;
+
+  $store.topLeftRadius     = val;
+  $store.topRightRadius    = val;
+  $store.bottomLeftRadius  = val;
+  $store.bottomRightRadius = val;
+}
+
+function resetAllRadii() {
+  $store.allRadii = 0;
+}
 </script>
 
 <div class="row">
@@ -21,20 +33,23 @@ const css = createBorderRadiusCSSStore(store);
       <div class="card">
         <div class="card-body">
           <div class="row">
+            <BorderRadiusSlider on:valueChanged={allBorderChanged} bind:value={$store.allRadii} caption="All Radii"/>
+          </div>
+          <div class="row">
             <div class="col-sm-6">
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.topLeftRadius} caption="Top Left Radius"/>
+                <BorderRadiusSlider bind:value={$store.topLeftRadius} on:valueChanged={resetAllRadii} caption="Top Left Radius"/>
               </div>
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.bottomLeftRadius} caption="Bottom Left Radius"/>
+                <BorderRadiusSlider bind:value={$store.bottomLeftRadius} on:valueChanged={resetAllRadii} caption="Bottom Left Radius"/>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.topRightRadius} caption="Top Right Radius"/>
+                <BorderRadiusSlider bind:value={$store.topRightRadius} on:valueChanged={resetAllRadii} caption="Top Right Radius"/>
               </div>
               <div class="row">
-                <BorderRadiusSlider bind:value={$store.bottomRightRadius} caption="Bottom Right Radius"/>
+                <BorderRadiusSlider bind:value={$store.bottomRightRadius} on:valueChanged={resetAllRadii} caption="Bottom Right Radius"/>
               </div>
             </div>
           </div>
