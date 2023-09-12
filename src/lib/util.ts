@@ -1,3 +1,15 @@
+export type RGBColor = {
+  red:   number,
+  green: number,
+  blue:  number
+}
+
+export type HSLColor = {
+  h: number;
+  s: number;
+  l: number;
+};
+
 /**
  * Converts a given string into kebab-case.
  *
@@ -36,6 +48,7 @@ function toHex (value: number): string  {
   return hex.length === 1 ? '0' + hex : hex;
 }
 
+
 /**
  * Converts individual Red, Green, and Blue color values to a Hexadecimal string.
  *
@@ -62,11 +75,75 @@ export function rgbToHex(red: number, green: number, blue: number): string {
   return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
 }
 
-type HSLColor = {
-  h: number;
-  s: number;
-  l: number;
-};
+export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
+
+  if(hex === undefined) {
+    return undefined;
+  }
+
+  // Remove the leading '#' if it exists
+  hex = hex.replace(/^#/, '');
+
+  // Validate hex string
+  if (hex.length !== 6 || !/^([A-Fa-f0-9]{6})$/.test(hex)) {
+    return null;
+  }
+
+  // Extract red, green, and blue components
+  const red = parseInt(hex.substring(0, 2), 16);
+  const green = parseInt(hex.substring(2, 4), 16);
+  const blue = parseInt(hex.substring(4, 6), 16);
+
+  return { red, green, blue };
+}
+
+export function hexToHSL(hex:string | undefined): HSLColor | undefined {
+  const rgb = hexToRGB(hex);
+
+  if (rgb === undefined || rgb === null) {
+    return undefined;
+  } else {
+    return rgbToHsl(rgb.red, rgb.green, rgb.blue);
+  }
+}
+
+export function hslToHex(h: number, s: number, l: number): string {
+  const toHex = (value: number): string => {
+    const hex = Math.round(value).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+
+  s /= 100;
+  l /= 100;
+
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+  const m = l - c / 2;
+
+  let r = 0, g = 0, b = 0;
+
+  if (0 <= h && h < 60) {
+    r = c; g = x; b = 0;
+  } else if (60 <= h && h < 120) {
+    r = x; g = c; b = 0;
+  } else if (120 <= h && h < 180) {
+    r = 0; g = c; b = x;
+  } else if (180 <= h && h < 240) {
+    r = 0; g = x; b = c;
+  } else if (240 <= h && h < 300) {
+    r = x; g = 0; b = c;
+  } else if (300 <= h && h < 360) {
+    r = c; g = 0; b = x;
+  }
+
+  r = (r + m) * 255;
+  g = (g + m) * 255;
+  b = (b + m) * 255;
+
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+}
+
+
 
 /**
  * Converts RGB color values to an HSL object.
