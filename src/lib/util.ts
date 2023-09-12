@@ -115,5 +115,5 @@ export function rgbToHsl(r: number, g: number, b: number): HSLColor {
 export function rgbToHSLCss(red: number, green: number, blue: number) {
   let hsl = rgbToHsl(red, green, blue);
 
-  return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%);`;
+  return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 }
