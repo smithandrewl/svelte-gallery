@@ -44,6 +44,13 @@
               href         = "/css"
             >CSS Tools</a>
           </li>
+          <li class="nav-item">
+            <a
+              class:active = {$page.url.pathname.startsWith('/color')}
+              class = "nav-link"
+              href = "/color"
+            >Color Tools</a>
+          </li>
       </ul>
     </div>
   </div>

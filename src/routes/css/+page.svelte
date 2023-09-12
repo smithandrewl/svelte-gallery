@@ -1,6 +1,5 @@
 <script>
-import ColorPicker from "$lib/components/color-picker/color-picker.svelte";
+  import BorderRadiusGenerator from '$lib/components/border-radius-generator/border-radius-generator.svelte'
 </script>
 
-<ColorPicker></ColorPicker>
-
+<BorderRadiusGenerator/>
