@@ -10,7 +10,7 @@
     class        = "nav-link active"
     href         = "/css/"
   >
-    Color Picker
+    Border Radius Generator
   </a>
 
   <a
@@ -27,14 +27,6 @@
     href        = "/css/gradient-generator"
   >
     Gradient Generator
-  </a>
-
-  <a
-    class:active = {$page.url.pathname === "/css/border-radius-generator"}
-    class        = "nav-link"
-    href         = "/css/border-radius-generator"
-  >
-    Border Radius Generator
   </a>
 </nav>
 
