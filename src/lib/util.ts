@@ -77,7 +77,9 @@ export function rgbToHex(red: number, green: number, blue: number): string {
 
 export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
 
+
   if(hex === undefined) {
+    console.log("hex is undefined");
     return undefined;
   }
 
@@ -86,6 +88,8 @@ export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
 
   // Validate hex string
   if (hex.length !== 6 || !/^([A-Fa-f0-9]{6})$/.test(hex)) {
+
+    console.log("Hex string was invalid");
     return null;
   }
 
@@ -94,7 +98,10 @@ export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
   const green = parseInt(hex.substring(2, 4), 16);
   const blue = parseInt(hex.substring(4, 6), 16);
 
-  return { red, green, blue };
+  console.log(`rgb(${red}, ${green}, ${blue});`);
+  return {
+    red, green, blue
+  };
 }
 
 export function hexToHSL(hex:string | undefined): HSLColor | undefined {
