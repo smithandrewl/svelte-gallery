@@ -24,3 +24,20 @@ export function makeKebab(input: string): string {
 
   return output;
 }
+
+export function rgbToHex(red: number, green: number, blue: number): string {
+  const toHex = (value: number): string => {
+    const hex = value.toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+
+  const isValueInvalid = (value: number) => value < 0 || value > 255;
+
+  const isColorInvalid = [red, green, blue].some(isValueInvalid);
+
+  if (isColorInvalid) {
+    throw new Error('Invalid color component value, must be between 0 and 255');
+  }
+
+  return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
+}

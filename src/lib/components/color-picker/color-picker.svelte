@@ -3,27 +3,15 @@
   import Slider from '$lib/components/color-picker/slider.svelte'
   import CssBox from '$lib/components/css-box/css-box.svelte';
 
-  // Default to a deep purple.
-  let red   = 0;
-  let green = 0;
-  let blue  = 128;
+  import {
+    createColorPickerCSSStore,
+    createColorPickerDetailedStore,
+    createColorPickerStore
+  } from '$lib/stores/color-picker-store';
 
-  function rgbToHex(red: number, green: number, blue: number): string {
-    const toHex = (value: number): string => {
-      const hex = value.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
-    };
-
-    const isValueInvalid = (value: number) => value < 0 || value > 255;
-
-    const isColorInvalid = [red, green, blue].some(isValueInvalid);
-
-    if (isColorInvalid) {
-      throw new Error('Invalid color component value, must be between 0 and 255');
-    }
-
-    return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
-  }
+  let colorPickerStore     = createColorPickerStore();
+  let colorRepresentations = createColorPickerDetailedStore(colorPickerStore);
+  let css                  = createColorPickerCSSStore(colorPickerStore);
 </script>
 
 <div class="row">
@@ -32,9 +20,9 @@
       <div class="col-sm-12">
         <div class="card mb-3">
           <div class="card-body">
-            <Slider color="Red"   bind:value={red}/>
-            <Slider color="Green" bind:value={green}/>
-            <Slider color="Blue"  bind:value={blue}/>
+            <Slider color="Red"   bind:value={$colorPickerStore.red}/>
+            <Slider color="Green" bind:value={$colorPickerStore.green}/>
+            <Slider color="Blue"  bind:value={$colorPickerStore.blue}/>
           </div>
         </div>
       </div>
@@ -43,10 +31,10 @@
       <div class="col-sm-12">
         <div class="card">
           <div class="card-body">
-            <h2>{rgbToHex(red, green, blue)}</h2>
+            <h2>{$colorRepresentations.rgb}</h2>
             <div
               class = "color-box"
-              style = "background-color:rgb({red}, {green}, {blue});"
+              style ={$css}
             ></div>
           </div>
         </div>
@@ -54,7 +42,7 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <CssBox css="background-color: {rgbToHex(red, green, blue)};"/>
+    <CssBox css="background-color: {$colorRepresentations.rgb};"/>
   </div>
 </div>
 
