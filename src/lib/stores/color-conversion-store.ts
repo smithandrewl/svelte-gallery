@@ -16,7 +16,7 @@ export interface ColorConversionStore extends Readable<string | undefined> {
 }
 
 export function createColorConversionStore(): ColorConversionStore {
-  const internalStore = writable<string | undefined>("#000000");
+  const internalStore = writable<string | undefined>("#0000FF");
 
   const { subscribe } = internalStore;
 
