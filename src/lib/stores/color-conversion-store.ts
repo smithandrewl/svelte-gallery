@@ -77,5 +77,15 @@ export function createColorInfoStore(baseStore: ColorConversionStore): Readable<
     }
   );
 }
+export function createColorInfoCSSStore(baseStore: Readable<ColorInfoStore>): Readable<string> {
+  return derived(
+    baseStore,
+    ($baseStore) => {
+      return `color: ${$baseStore.hex};\n` +
+        `color: rgb(${$baseStore.rgb.red}, ${$baseStore.rgb.green}, ${$baseStore.rgb.blue});\n` +
+        `color: hsl(${$baseStore.hsl.h}, ${$baseStore.hsl.s}, ${$baseStore.hsl.l});\n`;
+    }
+  )
+}
 
 

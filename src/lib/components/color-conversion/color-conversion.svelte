@@ -1,11 +1,13 @@
 <script lang="ts">
 
-  import {createColorConversionStore, createColorInfoStore} from "$lib/stores/color-conversion-store.ts";
+  import {createColorConversionStore, createColorInfoStore, createColorInfoCSSStore} from "$lib/stores/color-conversion-store.ts";
 
   let colorConversionStore = createColorConversionStore();
 
   let colorInfoStore = createColorInfoStore(colorConversionStore);
+  let css = createColorInfoCSSStore(colorInfoStore);
 
+  import CssBox from '$lib/components/css-box/css-box.svelte';
 </script>
 
 <style>
@@ -64,11 +66,16 @@
 
   </div>
   <div class="col-sm-6">
-    <h3>Color Details:</h3>
-    <pre>
-      Hex: {$colorInfoStore.hex}
-      RGB: {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
-      HSL: {$colorInfoStore.hsl.h}, {$colorInfoStore.hsl.s}, {$colorInfoStore.hsl.l}
-    </pre>
+    <div class="row">
+      <h3>Color Details:</h3>
+      <pre>
+        Hex: {$colorInfoStore.hex}
+        RGB: {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
+        HSL: {$colorInfoStore.hsl.h}, {$colorInfoStore.hsl.s}, {$colorInfoStore.hsl.l}
+      </pre>
+    </div>
+    <div class="row">
+      <CssBox css={$css}/>
+    </div>
   </div>
 </div>
