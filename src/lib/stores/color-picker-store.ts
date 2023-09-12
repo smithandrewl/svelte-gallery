@@ -1,7 +1,7 @@
 import {derived, writable} from 'svelte/store';
 
 import type { Writable } from 'svelte/store';
-import {rgbToHex} from '$lib/util';
+import {rgbToHex, rgbToHsl} from '$lib/util';
 
 export interface ColorPickerStore {
   red:   number;
@@ -29,6 +29,7 @@ export function createColorPickerDetailedStore(colorPickerStore: Writable<ColorP
 
 export function createColorPickerCSSStore(colorPickerStore: Writable<ColorPickerStore>) {
   return derived(colorPickerStore, ($store) => {
-    return `background-color: rgb(${$store.red}, ${$store.green}, ${$store.blue});`
+    return `background-color: rgb(${$store.red}, ${$store.green}, ${$store.blue});\n` +
+      `background-color: ${rgbToHsl($store.red, $store.green, $store.blue)};`;
   })
 }

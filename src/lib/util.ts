@@ -41,3 +41,41 @@ export function rgbToHex(red: number, green: number, blue: number): string {
 
   return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
 }
+
+export function rgbToHsl(r: number, g: number, b: number): string {
+  // Normalize the RGB values to the [0, 1] range
+  const r1 = r / 255;
+  const g1 = g / 255;
+  const b1 = b / 255;
+
+  // Find the maximum and minimum values among R, G, and B
+  const maxColor = Math.max(r1, g1, b1);
+  const minColor = Math.min(r1, g1, b1);
+
+  // Calculate Lightness
+  let l = (maxColor + minColor) / 2;
+
+  // Calculate Saturation
+  let s = 0;
+  if (maxColor !== minColor) {
+    s = l < 0.5 ? (maxColor - minColor) / (maxColor + minColor) : (maxColor - minColor) / (2.0 - maxColor - minColor);
+  }
+
+  // Calculate Hue
+  let h = 0;
+  if (maxColor !== minColor) {
+    if (r1 === maxColor) h = (g1 - b1) / (maxColor - minColor);
+    else if (g1 === maxColor) h = 2.0 + (b1 - r1) / (maxColor - minColor);
+    else h = 4.0 + (r1 - g1) / (maxColor - minColor);
+  }
+
+  // Convert Hue to degrees
+  h = Math.round(h * 60);
+  if (h < 0) h += 360;
+
+  // Convert Saturation and Lightness to percentage
+  s = Math.round(s * 100);
+  l = Math.round(l * 100);
+
+  return `hsl(${h}, ${s}%, ${l}%)`;
+}

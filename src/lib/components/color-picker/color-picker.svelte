@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <CssBox css="background-color: {$colorRepresentations.rgb};"/>
+    <CssBox css={$css}/>
   </div>
 </div>
 
