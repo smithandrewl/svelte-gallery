@@ -8,8 +8,14 @@
 
 </script>
 
-<pre>
-  Hex: {$colorInfoStore.hex}
-  RGB: {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
-  HSL: {$colorInfoStore.hsl.h}, {$colorInfoStore.hsl.s}, {$colorInfoStore.hsl.l}
-</pre>
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6">
+    <h3>Color Details:</h3>
+    <pre>
+      Hex: {$colorInfoStore.hex}
+      RGB: {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
+      HSL: {$colorInfoStore.hsl.h}, {$colorInfoStore.hsl.s}, {$colorInfoStore.hsl.l}
+    </pre>
+  </div>
+</div>
