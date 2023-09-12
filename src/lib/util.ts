@@ -62,58 +62,58 @@ export function rgbToHex(red: number, green: number, blue: number): string {
   return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
 }
 
+type HSLColor = {
+  h: number;
+  s: number;
+  l: number;
+};
+
 /**
- * Converts RGB color values to an HSL color string.
+ * Converts RGB color values to an HSL object.
  *
  * The function takes in the Red, Green, and Blue color components as parameters,
- * normalizes them, and returns the Hue, Saturation, and Lightness (HSL) as a CSS-compatible string.
+ * normalizes them, and returns an object containing the Hue, Saturation, and Lightness (HSL).
  *
  * @example
- * // returns 'hsl(0, 0%, 100%)'
- * rgbToHsl(255, 255, 255)
+ * // returns { h: 0, s: 0, l: 100 }
+ * rgbToHslObject(255, 255, 255)
  *
  * @param {number} r - The Red component of the color, must be an integer between 0 and 255.
  * @param {number} g - The Green component of the color, must be an integer between 0 and 255.
  * @param {number} b - The Blue component of the color, must be an integer between 0 and 255.
  *
- * @throws {Error} Throws an error if any of the RGB values are outside the valid range.
- *
- * @returns {string} A string representing the HSL color in the format `hsl(H, S%, L%)`.
+ * @returns {HSLColor} An object representing the HSL color with properties `h`, `s`, and `l`.
  */
-export function rgbToHsl(r: number, g: number, b: number): string {
-  // Normalize the RGB values to the [0, 1] range
+export function rgbToHsl(r: number, g: number, b: number): HSLColor {
   const r1 = r / 255;
   const g1 = g / 255;
   const b1 = b / 255;
 
-  // Find the maximum and minimum values among R, G, and B
   const maxColor = Math.max(r1, g1, b1);
   const minColor = Math.min(r1, g1, b1);
 
-  // Calculate Lightness
   let l = (maxColor + minColor) / 2;
-
-  // Calculate Saturation
   let s = 0;
+  let h = 0;
+
   if (maxColor !== minColor) {
     s = l < 0.5 ? (maxColor - minColor) / (maxColor + minColor) : (maxColor - minColor) / (2.0 - maxColor - minColor);
-  }
 
-  // Calculate Hue
-  let h = 0;
-  if (maxColor !== minColor) {
     if (r1 === maxColor) h = (g1 - b1) / (maxColor - minColor);
     else if (g1 === maxColor) h = 2.0 + (b1 - r1) / (maxColor - minColor);
     else h = 4.0 + (r1 - g1) / (maxColor - minColor);
   }
 
-  // Convert Hue to degrees
   h = Math.round(h * 60);
   if (h < 0) h += 360;
-
-  // Convert Saturation and Lightness to percentage
   s = Math.round(s * 100);
   l = Math.round(l * 100);
 
-  return `hsl(${h}, ${s}%, ${l}%)`;
+  return { h, s, l };
+}
+
+export function rgbToHSLCss(red: number, green: number, blue: number) {
+  let hsl = rgbToHsl(red, green, blue);
+
+  return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%);`;
 }
