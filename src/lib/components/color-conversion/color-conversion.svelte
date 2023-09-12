@@ -8,6 +8,11 @@
 
 </script>
 
+<style>
+  .form-control {
+    width: 5em;
+  }
+</style>
 <div class="row">
   <div class="col-sm-6">
     <!-- Hex -->
@@ -26,17 +31,34 @@
         <label for="rdioRgb">RGB</label>
       </div>
       <div class="col-sm-8">
-        <label for="numRed">Red: </label> <input type="number" size="3"/>
-        <label for="numGreen">Green: </label> <input type="number" size="3"/>
-        <label for="numBlue">Blue: </label><input type="number" size="3"/>
+        <div class="row">
+          <label for="numRed">Red: </label> <input type="number" class="form-control form-control-sm"/>
+        </div>
+        <div class="row">
+          <label for="numGreen">Green: </label> <input type="number" class="form-control form-control-sm"/>
+          </div>
+        <div class="row">
+        <label for="numBlue">Blue: </label><input type="number" class="form-control form-control-sm"/>
+          </div>
       </div>
     </div>
 
     <!-- HSL -->
     <div class="row">
-      <div class="col-sm-12">
-        <input id="rdioHsl" type="radio" name="type"/>
-        <label for="rdioHsl">HSL</label>
+      <div class="col-sm-2">
+        <input id="rdioRgb" type="radio" name="type"/>
+        <label for="rdioRgb">HSL</label>
+      </div>
+      <div class="col-sm-8">
+        <div class="row">
+          <label for="numRed">Hue: </label> <input type="number" class="form-control form-control-sm"/>
+        </div>
+        <div class="row">
+          <label for="numGreen">Saturation: </label> <input type="number" class="form-control form-control-sm"/>
+        </div>
+        <div class="row">
+          <label for="numBlue">Lightness: </label><input type="number" class="form-control form-control-sm"/>
+        </div>
       </div>
     </div>
 
