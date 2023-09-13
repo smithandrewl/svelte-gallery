@@ -15,55 +15,19 @@
     width: 5em;
   }
 </style>
+
 <div class="row">
   <div class="col-sm-6">
-    <!-- Hex -->
-    <div class="row">
-      <div class="col-sm-2">
-        <input id="rdioHex" type="radio" name="type"/>
-        <label for="rdioHex">Hex</label>
-      </div>
-      <div class="col-sm-8"><input type="text"/></div>
-    </div>
-
-    <!-- RGB -->
-    <div class="row">
+    <div class="row d-flex justify-content-center">
+      <div class="col-sm-2"><input id="rdioHex" type="radio" name="type" checked="checked"/>
+        <label for="rdioHex">Hex</label></div>
       <div class="col-sm-2">
         <input id="rdioRgb" type="radio" name="type"/>
-        <label for="rdioRgb">RGB</label>
-      </div>
-      <div class="col-sm-8">
-        <div class="row">
-          <label for="numRed">Red: </label> <input type="number" class="form-control form-control-sm"/>
-        </div>
-        <div class="row">
-          <label for="numGreen">Green: </label> <input type="number" class="form-control form-control-sm"/>
-          </div>
-        <div class="row">
-        <label for="numBlue">Blue: </label><input type="number" class="form-control form-control-sm"/>
-          </div>
-      </div>
-    </div>
-
-    <!-- HSL -->
-    <div class="row">
+        <label for="rdioRgb">RGB</label></div>
       <div class="col-sm-2">
-        <input id="rdioRgb" type="radio" name="type"/>
-        <label for="rdioRgb">HSL</label>
-      </div>
-      <div class="col-sm-8">
-        <div class="row">
-          <label for="numRed">Hue: </label> <input type="number" class="form-control form-control-sm"/>
-        </div>
-        <div class="row">
-          <label for="numGreen">Saturation: </label> <input type="number" class="form-control form-control-sm"/>
-        </div>
-        <div class="row">
-          <label for="numBlue">Lightness: </label><input type="number" class="form-control form-control-sm"/>
-        </div>
-      </div>
+        <input id="rdioHsl" type="radio" name="type"/>
+        <label for="rdioHsl">HSL</label></div>
     </div>
-
   </div>
   <div class="col-sm-6">
     <div class="row">
