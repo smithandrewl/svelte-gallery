@@ -43,7 +43,8 @@
 
     <div class="row">
       <h3>Color Details:</h3>
-      {#if $colorInfoStore}
+
+      {#if $colorInfoStore && $colorInfoStore.rgb}
         <div class="row">
           <div class="col-sm-12">
             <b>Hex:</b> {$colorInfoStore.hex}

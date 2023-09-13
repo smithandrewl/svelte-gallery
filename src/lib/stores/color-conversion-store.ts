@@ -15,6 +15,7 @@ export interface ColorConversionStore extends Readable<string | undefined> {
   setColorFromHsl: (h: number, s: number, l: number) => void;
   getColor: () => Writable<string | undefined>;
   setDefaultColor: () => void;
+  setNoColor: () => void;
 }
 
 export function createColorConversionStore(): ColorConversionStore {
@@ -45,6 +46,10 @@ export function createColorConversionStore(): ColorConversionStore {
     internalStore.set(defaultColor);
   }
 
+  const setNoColor = () => {
+    internalStore.set(undefined);
+  }
+
   return {
     subscribe,
     setSelectedColor,
@@ -52,7 +57,8 @@ export function createColorConversionStore(): ColorConversionStore {
     setColorFromHex,
     setColorFromHsl,
     getColor,
-    setDefaultColor
+    setDefaultColor,
+    setNoColor
   };
 }
 
@@ -72,9 +78,6 @@ export function createColorInfoStore(baseStore: ColorConversionStore): Readable<
 
       const rgb = hexToRGB($baseStore);
 
-      console.log(`hexToRGB returned ${rgb?.red}, ${rgb?.green}, ${rgb?.blue}`);
-
-      console.log($baseStore);
       return <ColorInfoStore>{
         rgb: rgb,
         hsl: hexToHSL($baseStore),
@@ -88,7 +91,7 @@ export function createColorInfoCSSStore(baseStore: Readable<ColorInfoStore|undef
     baseStore,
     ($baseStore) => {
 
-      if($baseStore === undefined) {
+      if($baseStore === undefined || $baseStore.rgb === null) {
         return "";
       }
 
