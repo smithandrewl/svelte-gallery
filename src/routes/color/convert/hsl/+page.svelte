@@ -14,8 +14,6 @@
   let l = 0;
 
   onMount(() => {
-    colorConversionStore.setDefaultColor();
-
     let hsl = hexToHSL($colorConversionStore);
 
     h = hsl.h;
