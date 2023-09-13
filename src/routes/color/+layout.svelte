@@ -14,7 +14,7 @@
   </a>
 
   <a
-    class:active = {$page.url.pathname === "/color/convert"}
+    class:active = {$page.url.pathname.startsWith("/color/convert")}
     class = "nav-link"
     href = "/color/convert"
     >Color Conversion</a>
