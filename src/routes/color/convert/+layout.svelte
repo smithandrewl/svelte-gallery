@@ -8,6 +8,8 @@
   let css = createColorInfoCSSStore(colorInfoStore);
 
   import CssBox from '$lib/components/css-box/css-box.svelte';
+
+  import { page } from '$app/stores';
 </script>
 
 <style>
@@ -17,19 +19,23 @@
 </style>
 
 <div class="row">
+
   <div class="col-sm-6">
-    <div class="row d-flex justify-content-center">
-      <div class="col-sm-2"><input id="rdioHex" type="radio" name="type" checked="checked"/>
-        <label for="rdioHex">Hex</label></div>
-      <div class="col-sm-2">
-        <input id="rdioRgb" type="radio" name="type"/>
-        <label for="rdioRgb">RGB</label></div>
-      <div class="col-sm-2">
-        <input id="rdioHsl" type="radio" name="type"/>
-        <label for="rdioHsl">HSL</label></div>
+    <div class="row">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a href="/color/convert" class:active = {$page.url.pathname === "/color/convert"} class="nav-link">Hex</a>
+        </li>
+        <li class="nav-item">
+          <a href="/color/convert/rgb" class:active = {$page.url.pathname === "/color/convert/rgb"} class="nav-link">RGB</a>
+        </li>
+        <li class="nav-item">
+          <a href="/color/convert/hsl" class:active = {$page.url.pathname === "/color/convert/hsl"} class="nav-link">HSL</a>
+        </li>
+      </ul>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-sm-12">
         <slot/>
       </div>
