@@ -12,10 +12,11 @@ export interface ColorConversionStore extends Readable<string | undefined> {
   setColorFromHex: (hex: string) => void;
   setColorFromHsl: (h: number, s: number, l: number) => void;
   getColor: () => Writable<string | undefined>;
+  setBlack: () => void;
 }
 
 export function createColorConversionStore(): ColorConversionStore {
-  const internalStore = writable<string | undefined>("#000000");
+  const internalStore = writable<string | undefined>(undefined);
 
   const { subscribe } = internalStore;
 
@@ -38,6 +39,10 @@ export function createColorConversionStore(): ColorConversionStore {
     internalStore.set(newColor);
   };
 
+  const setBlack = () => {
+    internalStore.set("#000000");
+  }
+
   return {
     subscribe,
     setSelectedColor,
@@ -45,6 +50,7 @@ export function createColorConversionStore(): ColorConversionStore {
     setColorFromHex,
     setColorFromHsl,
     getColor,
+    setBlack
   };
 }
 
