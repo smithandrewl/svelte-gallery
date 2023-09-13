@@ -2,9 +2,9 @@ import {derived, writable} from 'svelte/store';
 
 import type { Readable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import type {HSLColor, RGBColor} from '$lib/util';
+import type {HSLColor, RGBColor} from '$lib/util/colors.js';
 
-import {hexToHSL, hexToRGB, hslToHex, rgbToHex} from '$lib/util';
+import {hexToHSL, hexToRGB, hslToHex, rgbToHex} from '$lib/util/colors.js';
 
 const defaultColor = "#0FF000";
 

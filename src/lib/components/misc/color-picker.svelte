@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import {makeKebab} from '$lib/util';
+  import {makeKebab} from '$lib/util/string';
 
   export let label: string;
   export let color: string;

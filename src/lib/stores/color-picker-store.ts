@@ -1,7 +1,7 @@
 import {derived, writable} from 'svelte/store';
 
 import type { Writable } from 'svelte/store';
-import {rgbToHex, rgbToHSLCss} from '$lib/util';
+import {rgbToHex, rgbToHSLCss} from '$lib/util/colors.js';
 
 export interface ColorPickerStore {
   red:   number;

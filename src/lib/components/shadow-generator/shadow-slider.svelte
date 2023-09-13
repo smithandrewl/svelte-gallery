@@ -4,7 +4,7 @@
   export let min:   string;
   export let max:   string;
 
-  import {makeKebab} from "$lib/util.js"
+  import {makeKebab} from "$lib/util/string.js"
 </script>
 <div class="row">
   <div class="col-sm-12 d-flex justify-content-between">

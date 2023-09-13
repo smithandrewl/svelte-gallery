@@ -2,7 +2,7 @@
   export let value: number;
   export let caption: string;
 
-  import {makeKebab} from "$lib/util.js"
+  import {makeKebab} from "$lib/util/string.js"
 
   import { createEventDispatcher } from 'svelte'
 

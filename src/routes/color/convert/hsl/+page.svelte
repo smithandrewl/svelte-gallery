@@ -7,7 +7,7 @@
 
   import { onMount } from 'svelte';
 
-  import {hexToHSL} from '$lib/util';
+  import {hexToHSL} from '$lib/util/colors.js';
 
   let h = 0;
   let s = 0;
