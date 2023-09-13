@@ -39,29 +39,37 @@
     </div>
   </div>
   <div class="col-sm-6">
+
+
     <div class="row">
       <h3>Color Details:</h3>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <b>Hex:</b> {$colorInfoStore.hex}
+      {#if $colorInfoStore}
+        <div class="row">
+          <div class="col-sm-12">
+            <b>Hex:</b> {$colorInfoStore.hex}
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <b>RGB:</b> {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
+        <div class="row">
+          <div class="col-sm-12">
+            <b>RGB:</b> {$colorInfoStore.rgb.red}, {$colorInfoStore.rgb.green}, {$colorInfoStore.rgb.blue}
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <b>HSL:</b> {$colorInfoStore.hsl.h}&deg;, {$colorInfoStore.hsl.s}&percnt;, {$colorInfoStore.hsl.l}&percnt;
+        <div class="row">
+          <div class="col-sm-12">
+            <b>HSL:</b> {$colorInfoStore.hsl.h}&deg;, {$colorInfoStore.hsl.s}&percnt;, {$colorInfoStore.hsl.l}&percnt;
+          </div>
         </div>
-      </div>
+        <div class="row mt-5">
+          <CssBox css={$colorConversionCss}/>
+        </div>
+      {:else}
+        <div class="row">
+          No color information available.
+        </div>
+      {/if}
     </div>
 
-    <div class="row mt-5">
-      <CssBox css={$colorConversionCss}/>
-    </div>
+
   </div>
 </div>
 

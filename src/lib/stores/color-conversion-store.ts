@@ -54,12 +54,14 @@ export interface ColorInfoStore {
   hex: string
 }
 
-export function createColorInfoStore(baseStore: ColorConversionStore): Readable<ColorInfoStore> {
-
-
+export function createColorInfoStore(baseStore: ColorConversionStore): Readable<ColorInfoStore | undefined> {
   return derived(
     baseStore,
     ($baseStore) => {
+      if($baseStore === undefined) {
+        return undefined;
+      }
+
       const rgb = hexToRGB($baseStore);
 
       console.log(`hexToRGB returned ${rgb?.red}, ${rgb?.green}, ${rgb?.blue}`);
@@ -73,10 +75,15 @@ export function createColorInfoStore(baseStore: ColorConversionStore): Readable<
     }
   );
 }
-export function createColorInfoCSSStore(baseStore: Readable<ColorInfoStore>): Readable<string> {
+export function createColorInfoCSSStore(baseStore: Readable<ColorInfoStore|undefined>): Readable<string> {
   return derived(
     baseStore,
     ($baseStore) => {
+
+      if($baseStore === undefined) {
+        return "";
+      }
+
       return `color: ${$baseStore.hex};\n` +
         `color: rgb(${$baseStore.rgb.red}, ${$baseStore.rgb.green}, ${$baseStore.rgb.blue});\n` +
         `color: hsl(${$baseStore.hsl.h}, ${$baseStore.hsl.s}, ${$baseStore.hsl.l});\n`;
