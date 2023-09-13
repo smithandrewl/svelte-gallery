@@ -75,9 +75,17 @@ export function rgbToHex(red: number, green: number, blue: number): string {
   return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
 }
 
+/**
+ * Converts a hexadecimal color string to an RGB object.
+ *
+ * @param {string | undefined} hex - The hexadecimal color string to convert. If undefined, the function returns undefined.
+ * @returns {RGBColor | null | undefined} An object containing RGB components (`red`, `green`, `blue`), or `null` if the input string is invalid, or `undefined` if the input is undefined.
+ * @example
+ * hexToRGB("#FF0000");  // Output: { red: 255, green: 0, blue: 0 }
+ * hexToRGB(undefined);  // Output: undefined
+ * hexToRGB("#GGGGGG");  // Output: null
+ */
 export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
-
-
   if(hex === undefined) {
     return undefined;
   }
@@ -100,6 +108,15 @@ export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
   };
 }
 
+/**
+ * Converts a hexadecimal color string to HSL values.
+ *
+ * @param {string | undefined} hex - The hexadecimal color string to convert. If undefined, the function will return undefined.
+ * @returns {HSLColor | undefined} An object containing HSL components (`h`, `s`, `l`) or `undefined` if input is invalid.
+ * @example
+ * hexToHSL("#FF0000");  // Output: { h: 0, s: 100, l: 50 }
+ * hexToHSL(undefined);  // Output: undefined
+ */
 export function hexToHSL(hex:string | undefined): HSLColor | undefined {
   const rgb = hexToRGB(hex);
 
@@ -110,6 +127,17 @@ export function hexToHSL(hex:string | undefined): HSLColor | undefined {
   }
 }
 
+/**
+ * Converts HSL color values to a hexadecimal color string.
+ *
+ * @param {number} h - The hue component of the color, ranging from 0 to 360.
+ * @param {number} s - The saturation component of the color, ranging from 0 to 100.
+ * @param {number} l - The lightness component of the color, ranging from 0 to 100.
+ * @returns {string} A hexadecimal string representation of the color, in uppercase.
+ * @example
+ * hslToHex(0, 100, 50);  // Output: "#FF0000"
+ * hslToHex(120, 100, 50);  // Output: "#00FF00"
+ */
 export function hslToHex(h: number, s: number, l: number): string {
   const toHex = (value: number): string => {
     const hex = Math.round(value).toString(16);
@@ -192,12 +220,32 @@ export function rgbToHsl(r: number, g: number, b: number): HSLColor {
   return { h, s, l };
 }
 
+/**
+ * Converts RGB color values to a CSS HSL string representation.
+ *
+ * @param {number} red - The red component of the color, ranging from 0 to 255.
+ * @param {number} green - The green component of the color, ranging from 0 to 255.
+ * @param {number} blue - The blue component of the color, ranging from 0 to 255.
+ * @returns {string} A CSS HSL string representation of the color.
+ * @example
+ * const cssHSL = rgbToHSLCss(255, 0, 0);  // Output: "hsl(0, 100%, 50%)"
+ */
 export function rgbToHSLCss(red: number, green: number, blue: number) {
   let hsl = rgbToHsl(red, green, blue);
 
   return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 }
 
+/**
+ * Validates if a given string is a valid hexadecimal color.
+ *
+ * @param {string} color - The color string to validate.
+ * @returns {boolean} Returns `true` if the input is a valid hexadecimal color; otherwise, `false`.
+ * @example
+ * isValidHexColor("#fff");  // Output: true
+ * isValidHexColor("#abcdef");  // Output: true
+ * isValidHexColor("#ggg");  // Output: false
+ */
 export function isValidHexColor(color: string): boolean {
   const hexRegex = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
   return hexRegex.test(color);
