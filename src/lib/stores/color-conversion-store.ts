@@ -88,4 +88,9 @@ export function createColorInfoCSSStore(baseStore: Readable<ColorInfoStore>): Re
   )
 }
 
+export let colorConversionStore = createColorConversionStore();
+
+export let colorInfoStore = createColorInfoStore(colorConversionStore);
+export let colorConversionCss = createColorInfoCSSStore(colorInfoStore);
+
 

@@ -1,11 +1,9 @@
 <script lang="ts">
-
-  import {createColorConversionStore, createColorInfoStore, createColorInfoCSSStore} from "$lib/stores/color-conversion-store.ts";
-
-  let colorConversionStore = createColorConversionStore();
-
-  let colorInfoStore = createColorInfoStore(colorConversionStore);
-  let css = createColorInfoCSSStore(colorInfoStore);
+  import {
+    colorConversionStore,
+    colorInfoStore,
+    colorConversionCss
+  } from "$lib/stores/color-conversion-store.ts";
 
   import CssBox from '$lib/components/css-box/css-box.svelte';
 
@@ -19,7 +17,6 @@
 </style>
 
 <div class="row">
-
   <div class="col-sm-6">
     <div class="row">
       <ul class="nav nav-tabs">
@@ -63,7 +60,7 @@
     </div>
 
     <div class="row mt-5">
-      <CssBox css={$css}/>
+      <CssBox css={$colorConversionCss}/>
     </div>
   </div>
 </div>
