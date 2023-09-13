@@ -6,17 +6,19 @@ import type {HSLColor, RGBColor} from '$lib/util';
 
 import {hexToHSL, hexToRGB, hslToHex, rgbToHex} from '$lib/util';
 
+const defaultColor = "#0FF000";
+
 export interface ColorConversionStore extends Readable<string | undefined> {
   setSelectedColor: (color: string | undefined) => void;
   setColorFromRgb: (red: number, green: number, blue: number) => void;
   setColorFromHex: (hex: string) => void;
   setColorFromHsl: (h: number, s: number, l: number) => void;
   getColor: () => Writable<string | undefined>;
-  setBlack: () => void;
+  setDefaultColor: () => void;
 }
 
 export function createColorConversionStore(): ColorConversionStore {
-  const internalStore = writable<string | undefined>(undefined);
+  const internalStore = writable<string | undefined>(defaultColor);
 
   const { subscribe } = internalStore;
 
@@ -39,8 +41,8 @@ export function createColorConversionStore(): ColorConversionStore {
     internalStore.set(newColor);
   };
 
-  const setBlack = () => {
-    internalStore.set("#000000");
+  const setDefaultColor = () => {
+    internalStore.set(defaultColor);
   }
 
   return {
@@ -50,7 +52,7 @@ export function createColorConversionStore(): ColorConversionStore {
     setColorFromHex,
     setColorFromHsl,
     getColor,
-    setBlack
+    setDefaultColor
   };
 }
 

@@ -7,13 +7,21 @@
 
   import { onMount } from 'svelte';
 
-  onMount(() => {
-    colorConversionStore.setBlack();
-  });
+  import {hexToRGB} from '$lib/util';
 
   let red = 0;
   let green = 0;
   let blue = 0;
+
+  onMount(() => {
+    colorConversionStore.setDefaultColor();
+
+    let rgb = hexToRGB($colorConversionStore);
+
+    red = rgb.red;
+    green = rgb.green;
+    blue = rgb.blue;
+  });
 
   function updateStoreColor() {
     if(red > 255) red = 255;
