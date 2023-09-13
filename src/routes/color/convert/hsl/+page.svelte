@@ -22,6 +22,15 @@
   });
 
   function updateStoreColor() {
+
+    if(h < 0) h = 0;
+    if(s < 0) s = 0;
+    if(l < 0) s = 0;
+
+    if(h > 360) h = 360;
+    if(s > 100) s = 100;
+    if(l > 100) l = 100;
+
     colorConversionStore.setColorFromHsl(h, s, l);
   }
 </script>
@@ -34,7 +43,7 @@
       class       = "form-control"
       id          = "hue"
       min         = "0"
-      max         = "255"
+      max         = "360"
       placeholder = "Enter hue value"
       bind:value  = {h}
       on:change   = {updateStoreColor}
@@ -47,7 +56,7 @@
       class       = "form-control"
       id          = "saturation"
       min         = "0"
-      max         = "255"
+      max         = "100"
       placeholder = "Enter saturation value"
       bind:value  = {s}
       on:change   = {updateStoreColor}
@@ -60,7 +69,7 @@
       class       = "form-control"
       id          = "lightness"
       min         = "0"
-      max         = "255"
+      max         = "100"
       placeholder = "Enter lightness value"
       bind:value  = {l}
       on:change   = {updateStoreColor}
