@@ -7,7 +7,7 @@
 
   import { onMount } from 'svelte';
 
-  import {hexToRGB} from '$lib/util';
+  import {hexToRGB} from '$lib/util/colors.js';
 
   let red = 0;
   let green = 0;

@@ -6,13 +6,13 @@
     colorConversionCss
   } from "$lib/stores/color-conversion-store.ts";
 
-  import { isValidHexColor } from "$lib/util.ts";
-  let hex;
+  import { isValidHexColor } from "$lib/util/colors";
 
+  let hex;
 
   import { onMount } from 'svelte';
 
-  import {hexToHSL} from '$lib/util';
+  import {hexToHSL} from '$lib/util/colors';
 
 
   onMount(() => {
