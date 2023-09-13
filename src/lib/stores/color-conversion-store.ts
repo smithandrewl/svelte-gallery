@@ -12,11 +12,10 @@ export interface ColorConversionStore extends Readable<string | undefined> {
   setColorFromHex: (hex: string) => void;
   setColorFromHsl: (h: number, s: number, l: number) => void;
   getColor: () => Writable<string | undefined>;
-  internalStore: Writable<string|undefined>;
 }
 
 export function createColorConversionStore(): ColorConversionStore {
-  const internalStore = writable<string | undefined>("#0000FF");
+  const internalStore = writable<string | undefined>("#000000");
 
   const { subscribe } = internalStore;
 
@@ -46,7 +45,6 @@ export function createColorConversionStore(): ColorConversionStore {
     setColorFromHex,
     setColorFromHsl,
     getColor,
-    internalStore
   };
 }
 
@@ -57,8 +55,6 @@ export interface ColorInfoStore {
 }
 
 export function createColorInfoStore(baseStore: ColorConversionStore): Readable<ColorInfoStore> {
-
-  console.log(JSON.stringify(baseStore.internalStore));
 
 
   return derived(
