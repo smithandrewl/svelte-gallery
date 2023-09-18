@@ -48,7 +48,7 @@ export function rgbToHex(red: number, green: number, blue: number): string {
  * hexToRGB(undefined);  // Output: undefined
  * hexToRGB("#GGGGGG");  // Output: null
  */
-export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
+export function hexToRGB(hex: string| undefined): RGBColor | undefined {
   if(hex === undefined) {
     return undefined;
   }
@@ -58,7 +58,7 @@ export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
 
   // Validate hex string
   if (hex.length !== 6 || !/^([A-Fa-f0-9]{6})$/.test(hex)) {
-    return null;
+    return undefined;
   }
 
   // Extract red, green, and blue components
