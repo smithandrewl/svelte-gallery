@@ -19,14 +19,6 @@ export function createColorPickerStore() {
   return writable<ColorPickerStore>(defaultColorPicker());
 }
 
-export function createColorPickerDetailedStore(colorPickerStore: Writable<ColorPickerStore>) {
-  return derived(colorPickerStore, ($store) => {
-    return {
-      rgb: rgbToHex($store.red, $store.green, $store.blue)
-    };
-  });
-}
-
 export function createColorPickerCSSStore(colorPickerStore: Writable<ColorPickerStore>) {
   return derived(colorPickerStore, ($store) => {
     return `background-color: rgb(${$store.red}, ${$store.green}, ${$store.blue});\n` +

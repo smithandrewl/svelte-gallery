@@ -6,20 +6,24 @@ import type {HSLColor, RGBColor} from '$lib/util/colors.js';
 
 import {hexToHSL, hexToRGB, hslToHex, rgbToHex} from '$lib/util/colors.js';
 
-const defaultColor = "#0FF000";
+const defaultColor = {
+  red:   0,
+  green: 0,
+  blue:  0,
+};
 
-export interface ColorConversionStore extends Readable<string | undefined> {
-  setSelectedColor: (color: string | undefined) => void;
+export interface ColorConversionStore extends Readable<RGBColor | undefined> {
+  setSelectedColor: (color: RGBColor | undefined) => void;
   setColorFromRgb: (red: number, green: number, blue: number) => void;
   setColorFromHex: (hex: string) => void;
   setColorFromHsl: (h: number, s: number, l: number) => void;
-  getColor: () => Writable<string | undefined>;
+  getColor: () => Writable<RGBColor | undefined>;
   setDefaultColor: () => void;
   setNoColor: () => void;
 }
 
 export function createColorConversionStore(): ColorConversionStore {
-  const internalStore = writable<string | undefined>(defaultColor);
+  const internalStore = writable<RGBColor | undefined>(defaultColor);
 
   const { subscribe } = internalStore;
 
@@ -27,18 +31,22 @@ export function createColorConversionStore(): ColorConversionStore {
     return internalStore;
   }
   const setColorFromRgb = (red: number, green: number, blue: number): void => {
-    internalStore.set(rgbToHex(red, green, blue));
+    internalStore.set({
+      red,
+      green,
+      blue
+    });
   }
 
   const setColorFromHex = (hex: string): void => {
-    internalStore.set(hex);
+    internalStore.set(hexToRGB(hex));
   }
 
   const setColorFromHsl = (h: number, s: number, l: number): void => {
-    internalStore.set(hslToHex(h, s, l));
+    internalStore.set(hexToRGB(hslToHex(h, s, l)));
   }
 
-  const setSelectedColor = (newColor: string | undefined): void => {
+  const setSelectedColor = (newColor: RGBColor | undefined): void => {
     internalStore.set(newColor);
   };
 
@@ -76,12 +84,12 @@ export function createColorInfoStore(baseStore: ColorConversionStore): Readable<
         return undefined;
       }
 
-      const rgb = hexToRGB($baseStore);
+      const rgb = $baseStore;
 
       return <ColorInfoStore>{
         rgb: rgb,
-        hsl: hexToHSL($baseStore),
-        hex: $baseStore
+        hsl: hexToHSL(rgbToHex($baseStore)),
+        hex: rgbToHex($baseStore)
       }
     }
   );

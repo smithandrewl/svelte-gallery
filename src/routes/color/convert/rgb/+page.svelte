@@ -14,7 +14,7 @@
   let blue = 0;
 
   onMount(() => {
-    let rgb = hexToRGB($colorConversionStore);
+    let rgb = $colorConversionStore;
 
     red = rgb.red;
     green = rgb.green;

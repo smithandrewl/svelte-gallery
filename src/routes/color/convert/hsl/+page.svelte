@@ -7,14 +7,14 @@
 
   import { onMount } from 'svelte';
 
-  import {hexToHSL} from '$lib/util/colors.js';
+  import {hexToHSL, rgbToHex} from '$lib/util/colors.js';
 
   let h = 0;
   let s = 0;
   let l = 0;
 
   onMount(() => {
-    let hsl = hexToHSL($colorConversionStore);
+    let hsl = hexToHSL(rgbToHex($colorConversionStore));
 
     h = hsl.h;
     s = hsl.s;

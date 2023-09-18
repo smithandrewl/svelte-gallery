@@ -6,6 +6,8 @@
     colorConversionCss
   } from "$lib/stores/color-conversion-store.ts";
 
+  import { rgbToHex} from '$lib/util/colors.js';
+
   import { isValidHexColor } from "$lib/util/colors";
 
   let hex;
@@ -14,18 +16,19 @@
 
   import {hexToHSL} from '$lib/util/colors';
 
+  import { tick } from 'svelte';
 
   onMount(() => {
-    hex = $colorConversionStore;
+    hex = rgbToHex($colorConversionStore);
   });
 
-  function updateColor() {
+  async function updateColor() {
+    await tick();
     if(isValidHexColor(hex)) {
       colorConversionStore.setColorFromHex(hex);
     } else {
       colorConversionStore.setNoColor();
     }
-
   }
 </script>
 

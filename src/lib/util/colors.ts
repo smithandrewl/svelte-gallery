@@ -26,16 +26,16 @@ export type HSLColor = {
  *
  * @return {string} The Hexadecimal representation of the color, as a string starting with '#'.
  */
-export function rgbToHex(red: number, green: number, blue: number): string {
+export function rgbToHex(rgb:RGBColor): string {
   const isValueInvalid = (value: number) => value < 0 || value > 255;
 
-  const isColorInvalid = [red, green, blue].some(isValueInvalid);
+  const isColorInvalid = [rgb.red, rgb.green, rgb.blue].some(isValueInvalid);
 
   if (isColorInvalid) {
     throw new Error('Invalid color component value, must be between 0 and 255');
   }
 
-  return `#${toHex(red)}${toHex(green)}${toHex(blue)}`.toUpperCase();
+  return `#${toHex(rgb.red)}${toHex(rgb.green)}${toHex(rgb.blue)}`.toUpperCase();
 }
 
 /**
@@ -48,7 +48,7 @@ export function rgbToHex(red: number, green: number, blue: number): string {
  * hexToRGB(undefined);  // Output: undefined
  * hexToRGB("#GGGGGG");  // Output: null
  */
-export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
+export function hexToRGB(hex: string| undefined): RGBColor | undefined {
   if(hex === undefined) {
     return undefined;
   }
@@ -58,7 +58,7 @@ export function hexToRGB(hex: string| undefined): RGBColor | null | undefined {
 
   // Validate hex string
   if (hex.length !== 6 || !/^([A-Fa-f0-9]{6})$/.test(hex)) {
-    return null;
+    return undefined;
   }
 
   // Extract red, green, and blue components
