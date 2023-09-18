@@ -14,13 +14,7 @@
   let l = 0;
 
   onMount(() => {
-    let hsl = hexToHSL(
-      rgbToHex(
-        $colorConversionStore.red,
-        $colorConversionStore.green,
-        $colorConversionStore.blue
-      )
-    );
+    let hsl = hexToHSL(rgbToHex($colorConversionStore));
 
     h = hsl.h;
     s = hsl.s;

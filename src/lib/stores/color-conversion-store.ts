@@ -88,8 +88,8 @@ export function createColorInfoStore(baseStore: ColorConversionStore): Readable<
 
       return <ColorInfoStore>{
         rgb: rgb,
-        hsl: hexToHSL(rgbToHex($baseStore.red, $baseStore.green, $baseStore.blue)),
-        hex: rgbToHex($baseStore.red, $baseStore.green, $baseStore.blue)
+        hsl: hexToHSL(rgbToHex($baseStore)),
+        hex: rgbToHex($baseStore)
       }
     }
   );

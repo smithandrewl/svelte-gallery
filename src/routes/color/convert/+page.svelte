@@ -19,8 +19,7 @@
   import { tick } from 'svelte';
 
   onMount(() => {
-    hex = rgbToHex($colorConversionStore.red, $colorConversionStore.green, $colorConversionStore.blue);
-    console.log(hex);
+    hex = rgbToHex($colorConversionStore);
   });
 
   async function updateColor() {
@@ -30,7 +29,6 @@
     } else {
       colorConversionStore.setNoColor();
     }
-
   }
 </script>
 

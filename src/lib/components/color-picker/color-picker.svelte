@@ -10,7 +10,6 @@
   } from '$lib/stores/color-picker-store';
 
   let colorPickerStore     = createColorPickerStore();
-  let colorRepresentations = createColorPickerDetailedStore(colorPickerStore);
   let css                  = createColorPickerCSSStore(colorPickerStore);
 </script>
 
