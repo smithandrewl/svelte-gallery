@@ -26,10 +26,8 @@
   async function updateColor() {
     await tick();
     if(isValidHexColor(hex)) {
-      console.log(`Color was a valid hex code: ${hex}`);
       colorConversionStore.setColorFromHex(hex);
     } else {
-      console.log(`Color was an invalid hex code: ${hex}`);
       colorConversionStore.setNoColor();
     }
 
